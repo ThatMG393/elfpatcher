@@ -199,6 +199,8 @@ int write_dt_neededs(int fd, Elf32_Ehdr* header, Elf32_DtNeeded* dt_neededs, int
     	goto fail;
     }
 
+    printf("strtab size : %i\n", strsz_entry->d_un.d_val);
+
 	Elf32_Off string_table_offset = 0;
     for (int i = 0; i < header->e_phnum; ++i) {
     	Elf32_Phdr program_table = program_tables[i];

@@ -23,8 +23,8 @@ int patch_auto(const char* path, const char* prefix) {
 	switch (eh.e_ident[EI_CLASS]) {
 		case ELFCLASS32:
 			return patch32(fd, prefix);
-		case ELFCLASS64:
-			return patch64(fd, prefix);
+		/* case ELFCLASS64:
+			return patch64(fd, prefix); */
 		default:
 			return FALSE;
 			

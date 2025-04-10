@@ -21,5 +21,5 @@ int patch_auto(const char* path, const char* prefix);
 
 // same as patch_auto but architecture implementation
 int patch32(int fd, const char* prefix);
-int patch64(int fd, const char* prefix);
+// int patch64(int fd, const char* prefix);
 

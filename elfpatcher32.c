@@ -296,13 +296,10 @@ int patch32(int fd, const char* prefix) {
 		Elf32_DtNeeded* dt_needed = &dt_neededs[i];
 		
 		char buf[strlen(dt_needed->library) + strlen(prefix) + 1];
-
 		sprintf(buf, "%s%s", prefix, dt_needed->library);
 
 		printf("Replacing '%s' to '%s'\n", dt_needed->library, buf);
-
-		char* buf1 = insert_at_replace_old(dt_needed->library, buf, 0);
-		strcpy(dt_needed->library, buf1);
+		strcpy(dt_needed->library, insert_at_replace_old(dt_needed->library, buf, 0));
 	}
 
 	if (write_dt_neededs(fd, &header, dt_neededs, dt_needed_size) != TRUE) {
